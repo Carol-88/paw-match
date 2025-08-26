@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import com.example.demo.enums.Caracter;
 import com.example.demo.enums.Medida;
+import com.example.demo.enums.Sexo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -42,6 +43,10 @@ public class Preferencias {
     @Enumerated(EnumType.STRING)
     @Column(length = 15)
     private Caracter caracter;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10)
+    private Sexo genero;
 
     @Min(value = 1, message = "La distancia mínima es de 1 km")
     @Max(value = 100, message = "La distancia máxima permitida es de 100 km")
