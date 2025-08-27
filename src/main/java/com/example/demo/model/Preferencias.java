@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.aspectj.bridge.IMessage;
@@ -17,7 +18,9 @@ import org.aspectj.bridge.IMessage;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "preferencias")
+@Builder
 public class Preferencias {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

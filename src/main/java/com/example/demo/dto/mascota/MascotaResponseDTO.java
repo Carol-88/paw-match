@@ -14,7 +14,7 @@ public class MascotaResponseDTO {
     private String especie;
     private int edad;
     private String raza;
-    private Sexo sexo;
+    private Sexo genero;
     private Medida medida;
     private Caracter caracter;
     private String descripcion;

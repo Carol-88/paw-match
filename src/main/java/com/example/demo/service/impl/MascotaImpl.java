@@ -7,10 +7,12 @@ import com.example.demo.model.Mascota;
 import com.example.demo.repository.MascotaRepository;
 import com.example.demo.service.interfaces.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class MascotaImpl implements MascotaService {
 
     @Autowired
@@ -41,7 +43,7 @@ public class MascotaImpl implements MascotaService {
         mascota.setDescripcion(mascotaRequest.getDescripcion());
         mascota.setCaracter(mascotaRequest.getCaracter());
         mascota.setMedida(mascotaRequest.getMedida());
-        mascota.setSexo(mascotaRequest.getSexo());
+        mascota.setSexo(mascotaRequest.getGenero());
         mascota.setFotoUrl(mascotaRequest.getFotoUrl());
         Mascota savedMascota = mascotaRepository.save(mascota);
         return mapToResponseDTO(savedMascota);
@@ -69,6 +71,14 @@ public class MascotaImpl implements MascotaService {
         mascotaRepository.deleteById(id);
     }
 
+    @Override
+    public List<MascotaResponseDTO> getMascotasByPropietarioId(Long propietarioId) {
+        return mascotaRepository.findByPropietarioId(propietarioId)
+                .stream()
+                .map(this::mapToResponseDTO)
+                .collect(Collectors.toList());
+    }
+
 private MascotaResponseDTO mapToResponseDTO(Mascota mascota) {
     MascotaResponseDTO dto = new MascotaResponseDTO();
     dto.setId(mascota.getId());
@@ -79,7 +89,7 @@ private MascotaResponseDTO mapToResponseDTO(Mascota mascota) {
     dto.setDescripcion(mascota.getDescripcion());
     dto.setCaracter(mascota.getCaracter());
     dto.setMedida(mascota.getMedida());
-    dto.setSexo(mascota.getSexo());
+    dto.setGenero(mascota.getSexo());
     dto.setFotoUrl(mascota.getFotoUrl());
     dto.setPropietario(mascota.getPropietario());
     return dto;

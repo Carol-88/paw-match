@@ -15,8 +15,4 @@ public class PreferenciasUpdateDTO {
     private Caracter caracter;
     private Sexo genero;
     private Integer distanciaMaxKm;
-
-
-
-
 }

@@ -1,5 +1,15 @@
 package com.example.demo.service.interfaces;
 
+import com.example.demo.dto.preferencias.PreferenciasRequestDTO;
+import com.example.demo.dto.preferencias.PreferenciasResponseDTO;
+import com.example.demo.dto.preferencias.PreferenciasUpdateDTO;
+
+import java.util.List;
+
 public interface PreferenciasService {
-    void funcionRara();
+    List<PreferenciasResponseDTO> getAllPreferencias();
+    PreferenciasResponseDTO getPreferenciasById(Long id);
+    PreferenciasResponseDTO createPreferencias(PreferenciasRequestDTO preferenciasRequest);
+    PreferenciasResponseDTO updatePreferencias(Long id, PreferenciasUpdateDTO preferenciasUpdate);
+    void deletePreferencias(Long id);
 }

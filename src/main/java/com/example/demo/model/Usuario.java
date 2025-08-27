@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,6 +21,7 @@ import java.util.List;
 @Table(name = "usuarios", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
 })
+@Builder
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +42,7 @@ public class Usuario {
 
     @NotBlank
     @Size(max = 150, message = "El password no puede tener más de 150 caracteres")
-    @Column(nullable = false, length = 150, unique = true)
+    @Column(nullable = false, length = 150, unique = false)
     private String password;
 
 
@@ -59,4 +61,5 @@ public class Usuario {
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private Preferencias preferencias;
+
 }

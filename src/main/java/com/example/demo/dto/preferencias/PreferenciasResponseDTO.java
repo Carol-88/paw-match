@@ -10,12 +10,10 @@ public class PreferenciasResponseDTO {
     private Long id;
     private String raza;
     private Medida medida;
-    private String edad;
     private Integer edadMin;
     private Integer edadMax;
     private Caracter caracter;
     private Sexo genero;
     private Integer distanciaMaxKm;
-
     private Long usuarioId;
 }

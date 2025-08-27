@@ -10,14 +10,19 @@ import lombok.Data;
 public class MascotaRequestDTO {
     @NotBlank(message = "El nombre no puede estar vacío")
     private String nombre;
+
     @NotBlank(message = "La especie no puede estar vacía")
     private String especie;
+
     @NotBlank(message = "La edad no puede estar vacía")
     private int edad;
+
     @NotBlank(message = "La raza no puede estar vacía")
     private String raza;
+
     @NotBlank(message = "El sexo no puede estar vacío")
-    private Sexo sexo;
+    private Sexo genero;
+
     private Medida medida;
     private Caracter caracter;
     private String descripcion;

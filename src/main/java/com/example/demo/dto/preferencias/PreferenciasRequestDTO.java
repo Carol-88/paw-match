@@ -3,7 +3,6 @@ package com.example.demo.dto.preferencias;
 import com.example.demo.enums.Caracter;
 import com.example.demo.enums.Medida;
 import com.example.demo.enums.Sexo;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
