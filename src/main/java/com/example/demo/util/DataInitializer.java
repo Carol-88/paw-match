@@ -3,9 +3,11 @@ package com.example.demo.util;
 import com.example.demo.enums.Caracter;
 import com.example.demo.enums.Medida;
 import com.example.demo.enums.Sexo;
+import com.example.demo.model.Chat;
 import com.example.demo.model.Mascota;
 import com.example.demo.model.Preferencias;
 import com.example.demo.model.Usuario;
+import com.example.demo.repository.ChatRepository;
 import com.example.demo.repository.MascotaRepository;
 import com.example.demo.repository.PreferenciasRepository;
 import com.example.demo.repository.UsuarioRepository;
@@ -27,6 +29,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Autowired
     PreferenciasRepository preferenciasRepository;
+
+    @Autowired
+    ChatRepository chatRepository;
 
     @Override
     public void run(String... args) {
@@ -71,5 +76,17 @@ public class DataInitializer implements CommandLineRunner {
                 .edadMin(4)
                 .build();
         preferenciasRepository.save(preferencias1);
+
+        //MATCH
+
+        //MENSAJE
+
+
+//        //CHAT
+//        Chat chat1 = Chat.builder()
+//                .usuario1(user1)
+//                .usuario2(user2)
+//                .matchId(1L)
+//                .build();
     }
 }

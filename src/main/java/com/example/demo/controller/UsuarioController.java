@@ -4,6 +4,7 @@ import com.example.demo.dto.usuario.UsuarioRequestDTO;
 import com.example.demo.dto.usuario.UsuarioResponseDTO;
 import com.example.demo.dto.usuario.UsuarioUpdateDTO;
 import com.example.demo.service.interfaces.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,8 @@ import java.util.List;
 @RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
-
-    public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDTO>> getAllUsuarios() {
