@@ -43,7 +43,7 @@ public class MascotaImpl implements MascotaService {
         mascota.setDescripcion(mascotaRequest.getDescripcion());
         mascota.setCaracter(mascotaRequest.getCaracter());
         mascota.setMedida(mascotaRequest.getMedida());
-        mascota.setSexo(mascotaRequest.getGenero());
+        mascota.setGenero(mascotaRequest.getGenero());
         mascota.setFotoUrl(mascotaRequest.getFotoUrl());
         Mascota savedMascota = mascotaRepository.save(mascota);
         return mapToResponseDTO(savedMascota);
@@ -89,9 +89,9 @@ private MascotaResponseDTO mapToResponseDTO(Mascota mascota) {
     dto.setDescripcion(mascota.getDescripcion());
     dto.setCaracter(mascota.getCaracter());
     dto.setMedida(mascota.getMedida());
-    dto.setGenero(mascota.getSexo());
+    dto.setGenero(mascota.getGenero());
     dto.setFotoUrl(mascota.getFotoUrl());
-    dto.setPropietario(mascota.getPropietario());
+    dto.setPropietarioId(mascota.getPropietario().getId());
     return dto;
     }
 }

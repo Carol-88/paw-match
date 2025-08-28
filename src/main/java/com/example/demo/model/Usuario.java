@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -47,7 +49,7 @@ public class Usuario {
 
 
     @Size(max = 150, message = "La ubicación no puede tener más de 150 caracteres")
-    @Column(nullable = false, length = 150, unique = true)
+    @Column(nullable = true, length = 150, unique = true)
     private String ubicacion;
 
     @CreationTimestamp
@@ -59,7 +61,8 @@ public class Usuario {
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Mascota> mascotas = new ArrayList<>();
 
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "usuario")
+    @JsonManagedReference
     private Preferencias preferencias;
 
 }

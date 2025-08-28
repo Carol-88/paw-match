@@ -64,6 +64,7 @@ public class PreferenciasImpl implements PreferenciasService {
         dto.setGenero(preferencias.getGenero());
         dto.setDistanciaMaxKm(preferencias.getDistanciaMaxKm());
         dto.setRaza(preferencias.getRaza());
+        dto.setUsuarioId(preferencias.getUsuario().getId());
         return dto;
     }
 }

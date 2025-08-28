@@ -3,6 +3,7 @@ package com.example.demo.model;
 import com.example.demo.enums.Caracter;
 import com.example.demo.enums.Medida;
 import com.example.demo.enums.Sexo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -38,7 +39,7 @@ public class Mascota {
     private String raza;
 
     @Enumerated(EnumType.STRING)
-    private Sexo sexo;
+    private Sexo genero;
 
     @NotNull(message = "La edad es obligatoria")
     @Min(value = 0, message = "La edad no puede ser negativa")
@@ -66,6 +67,7 @@ public class Mascota {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIgnore
     private Usuario propietario;
 
     @ManyToMany(mappedBy = "mascotasParticipantes")

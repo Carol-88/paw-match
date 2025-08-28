@@ -4,6 +4,7 @@ import com.example.demo.dto.usuario.UsuarioRequestDTO;
 import com.example.demo.dto.usuario.UsuarioResponseDTO;
 import com.example.demo.dto.usuario.UsuarioUpdateDTO;
 import com.example.demo.service.interfaces.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> createUsuario(@RequestBody UsuarioRequestDTO usuarioRequest) {
+    public ResponseEntity<UsuarioResponseDTO> createUsuario(@Valid @RequestBody UsuarioRequestDTO usuarioRequest) {
         return ResponseEntity.ok(usuarioService.createUsuario(usuarioRequest));
     }
 

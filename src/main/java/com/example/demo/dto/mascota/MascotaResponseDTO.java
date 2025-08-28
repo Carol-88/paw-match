@@ -20,5 +20,5 @@ public class MascotaResponseDTO {
     private String descripcion;
     private Long usuarioId;
     private String fotoUrl;
-    private Usuario propietario;
+    private Long propietarioId;
 }
